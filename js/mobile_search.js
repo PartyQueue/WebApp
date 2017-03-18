@@ -43,6 +43,7 @@ $(document).ready(function() {
 });
 /* Close */
 function closeNav() {
+    $("#mobile-search-bar").val('');
     $(".closebtn").addClass("hidden-xs-up");
     document.getElementById("mobile-search").style.height = "0vh";
 }

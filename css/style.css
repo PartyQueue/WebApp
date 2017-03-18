@@ -1,13 +1,64 @@
+.desktop-search {
+  background-color:#181818;
+}
+
+.right-sidebar {
+  background-color:#121212;
+}
+
+.mobile-search input {
+	border: 0;
+	padding: 5px 10px;
+	border-radius: 20px;
+	background-color: #ddd;
+	width: 100%;
+	outline: none;
+}
+
+.mobile-search input:focus {
+  background-color: #ddd;
+}
+
+.mobile-search .input-group-addon {
+  border: 0;
+  padding: 5px 10px;
+  border-radius: 20px 0px 0px 20px;
+  background-color: #ddd;
+  outline: none;
+}
+
 .song-queue {
     height:65vh;
     overflow-y:auto;
     width:100%;
-    background-color:#333666;
+    overflow-x:hidden;
+    -webkit-overflow-scrolling:touch;
+    background-color:#121212;
+}
+
+.queued-song {
+    background-color:#121212;
+    border-bottom:1px solid #282828;
+    color:#a0a0a0;
+    padding:12px;
+}
+
+.queued-song:hover {
+    color:white;
+}
+.song-queue .list-group-item:first-child {
+  border-top-right-radius: 0px !important;
+  border-top-left-radius: 0px !important;
+}
+
+.song-queue .list-group-item:last-child {
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
 }
 
 @media (min-width: 992px) {
     .song-queue {
-        height:75vh;
+        height:79vh;
     }
 }
 
@@ -16,7 +67,7 @@
    height:8vh;
    min-height:40px;
    vertical-align:middle;
-   background-color:#666;
+   background-color:#121212;
    display: flex;
    flex-direction: column;
    justify-content: center;
@@ -26,7 +77,7 @@
   height:27vh;
   min-height:150px;
   padding:30px 10px;
-  background-color:#333;
+  background-color:#282828;
   margin:0px;
   background-size:cover;
 }
@@ -35,19 +86,6 @@
     .now-playing {
         height:21vh;
     }
-}
-
-.now-playing-header {
-    margin:0px;
-    padding:0px;
-    text-align:center;
-    color:white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height:4vh;
-    width:100%;
-    background-color:#666;
 }
 
 .now-playing .album {
@@ -106,7 +144,7 @@
     z-index: 1035; /* Sit on top */
     left: 0;
     top: 0;
-    background-color: #111; /* Black w/opacity */
+    background-color: #121212; /* Black w/opacity */
     overflow-x: hidden; /* Disable horizontal scroll */
     overflow-y: scroll;
     -webkit-overflow-scrolling:touch;
@@ -153,7 +191,7 @@
   color:#fff;
 }
 .artist {
-  color:#aaa;
+    color:#a0a0a0;
 }
 .no-margins {
   margin:0px;
@@ -170,4 +208,23 @@
     top: 10px;
     right: 20px;
     font-size: 48pt;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #1c1c1f;
+}
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #1c1c1f;
+}
+::-webkit-scrollbar:horizontal {
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  border: 1px solid #1c1c1f;
+  border-radius: 10px;
+  background-color: #323438;
+}
+::-webkit-scrollbar-corner {
+  background-color: #1c1c1f;
 }
