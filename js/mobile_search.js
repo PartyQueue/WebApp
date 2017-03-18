@@ -1,6 +1,5 @@
 /* Open */
 $(document).ready(function() {
-  $('[data-toggle="tooltip"]').tooltip();
   $("#mobile-search-form").submit(function(e) {
     $("#mobile-search-bar").blur();
     e.preventDefault();
@@ -15,7 +14,7 @@ $(document).ready(function() {
                 $('#mobile-results').html('');
                 $.each(response.tracks.items, function(k,v) {
                   $("#original .song").html(v.name);
-                  artist_name = '';
+                  var artist_name = '';
                   $.each(v.artists, function(art, ist) {
                     artist_name += ist.name + ', ';
                   });
@@ -36,6 +35,7 @@ $(document).ready(function() {
                     that.hide("fast");
                   });
             });
+            $("#mobile-results").append("<div class='iphone-spacer'></div>");
             $(".closebtn").removeClass("hidden-xs-up");
             document.getElementById("mobile-search").style.height = "100vh";
         }});

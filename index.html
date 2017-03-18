@@ -15,7 +15,7 @@
         <a href="javascript:void(0);" class="close closebtn text-white hidden-xs-up" onclick="closeNav()">&times;</a>
 
       <!-- SAMPLE -->
-      <div class="media hidden-xs-up" id="original">
+      <div class="media hidden-xs-up" id="original" style="cursor:pointer;">
         <img class="d-flex mr-3 album" width="64" height="64"/>
         <div class="media-body">
           <h5 class="mt-0 song"></h5>
@@ -42,14 +42,17 @@
               </div>
             </form>
           </div>
+        <h4 class="now-playing-header hidden-md-down">Now Playing</h4>
           <div class="row now-playing no-gutters" data-toggle="tooltip" data-placement="bottom" title="Song requested by: Shane">
-            <div class="album-holder col-4 col-lg-3">
+            <div class="album-holder col-4 col-md-3">
               <img class="img-thumbnail album" src="https://placeholdit.imgix.net/~text?txtsize=72&txt=Nothing%20Playing&w=640&h=640"/>
             </div>
-            <div class="description col-8 col-lg-9">
+            <div class="description col-8 col-md-9">
               <h5 class="mt-0 song">Song Title</h5>
               <p class="artist">Artist</p>
             </div>
+          </div>
+          <div class="song-queue">
           </div>
         </div>
         <div class="col-xl-9 col-lg-8 bg-danger hidden-md-down"></div>
