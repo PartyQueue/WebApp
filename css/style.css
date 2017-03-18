@@ -1,0 +1,132 @@
+.mobile-search {
+   padding:10px;
+   height:8vh;
+   vertical-align:middle;
+   background-color:#666;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+}
+
+.now-playing {
+  height:27vh;
+  max-height:27vh;
+  padding:30px 10px;
+  background-color:#333;
+  margin:0px;
+}
+
+.now-playing .album {
+    max-height: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.now-playing .album-holder {
+    position: relative;
+}
+
+.now-playing .description {
+    padding-left:16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.now-playing .song {
+    font-size:18pt;
+}
+.now-playing .artist {
+    font-size:16pt;
+}
+
+@media (min-width: 576px) {
+  .now-playing .song {
+      font-size:24pt;
+  }
+  .now-playing .artist {
+      font-size:20pt;
+  }
+}
+
+@media (min-width: 992px) {
+  .now-playing .song {
+      font-size:16pt;
+  }
+  .now-playing .artist {
+      font-size:12pt;
+  }
+}
+
+.overlay {
+    /* Height & width depends on how you want to reveal the overlay (see JS below) */
+    height: 0;
+    width: 100%;
+    position: fixed; /* Stay in place */
+    z-index: 1035; /* Sit on top */
+    left: 0;
+    top: 0;
+    background-color: #333; /* Black w/opacity */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.overlay-content {
+    position: relative;
+    top: 0%; /* 25% from the top */
+    width: 100%; /* 100% width */
+    text-align: left; /* Centered text/links */
+    margin-top:36px;
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+    padding: 0px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block; /* Display block instead of inline */
+    transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+.btn-success {
+  border-color:rgba(0, 0, 0, 0.5);
+  border-left-color:rgba(0, 0, 0, 0.15);
+}
+
+.overlay-content .media {
+  overflow:hidden;
+  white-space: nowrap;
+  margin-bottom: 4px;
+      padding:0 20px;
+}
+
+.desc {
+  padding-left:74px;
+  padding-top:8px;
+  margin:auto;
+}
+.song {
+  color:#fff;
+}
+.artist {
+  color:#aaa;
+}
+.no-margins {
+  margin:0px;
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover, .overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    z-index: 1036; /* Sit on top */
+    position: fixed;
+    top: 10px;
+    right: 20px;
+    font-size: 48pt;
+}

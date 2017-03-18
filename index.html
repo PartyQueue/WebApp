@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container-fluid" style="height:100vh; padding:0;">
+      <div class="overlay hidden-lg-up" id="mobile-search">
+        <a href="javascript:void(0);" class="close closebtn text-white hidden-xs-up" onclick="closeNav()">&times;</a>
+
+      <!-- SAMPLE -->
+      <div class="media hidden-xs-up" id="original">
+        <img class="d-flex mr-3 album" width="64" height="64"/>
+        <div class="media-body">
+          <h5 class="mt-0 song"></h5>
+          <p class="artist"></p>
+        </div>
+      </div>
+      <!-- ====== -->
+      <div class="overlay-content" id="mobile-results">
+      <!-- Overlay content -->
+
+
+
+      </div>
+      </div>
+      <div class="row no-gutters" style="height:100vh;">
+        <div class="col-xl-3 col-lg-4">
+          <div class="hidden-lg-up mobile-search">
+            <form class="form-group no-margins" id="mobile-search-form">
+              <div class="input-group">
+                <input type="text" class="form-control" id="mobile-search-bar" placeholder="Search for...">
+                <span class="input-group-btn">
+                  <button class="btn btn-success" type="submit"><i class="fa fa-search"></i></button>
+                </span>
+              </div>
+            </form>
+          </div>
+          <div class="row now-playing no-gutters" data-toggle="tooltip" data-placement="bottom" title="Song requested by: Shane">
+            <div class="album-holder col-4 col-lg-3">
+              <img class="img-thumbnail album" src="https://placeholdit.imgix.net/~text?txtsize=72&txt=Nothing%20Playing&w=640&h=640"/>
+            </div>
+            <div class="description col-8 col-lg-9">
+              <h5 class="mt-0 song">Song Title</h5>
+              <p class="artist">Artist</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xl-9 col-lg-8 bg-danger hidden-md-down"></div>
+      </div>
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://use.fontawesome.com/b624f43dfb.js"></script>
+    <script src="js/notify.min.js"></script>
+    <script src="js/mobile_search.js"></script>
+    <script src="js/refresh_queue.js"></script>
+  </body>
+</html>
