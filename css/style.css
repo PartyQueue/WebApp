@@ -1,25 +1,95 @@
-.desktop-search {
-  background-color:#181818;
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 11pt;
+  font-weight: 300;
 }
 
 .right-sidebar {
   background-color:#121212;
 }
 
-.mobile-search input {
+.desktop-search {
+  background-color:#181818;
+  height:100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.thin {
+  width:60px;
+  text-align:center;
+}
+
+.thin i {
+  visibility: hidden;
+}
+
+#track-table {
+  table-layout:fixed;
+  width:90%;
+  margin-left:5%;
+}
+
+#track-table th {
+  color:#a0a0a0;
+  font-weight:lighter;
+  letter-spacing: 2px;
+  font-size:10pt;
+}
+#track-table tr {
+  border-bottom:1px solid #282828;
+}
+
+#track-table tr:hover i {
+  visibility: visible;
+}
+#track-table td {
+  color:#fff;
+  padding:10px;
+  padding-left:0px;
+  overflow:hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#track-table a {
+  text-decoration: none;
+  color:white;
+}
+#track-table a:hover {
+  text-decoration: underline;
+}
+.clickable {
+  cursor:pointer;
+}
+
+.desktop-search .form-group {
+  position:fixed;
+  background-color:#121212;
+  width:100%;
+  padding:12px;
+  padding-right:70%;
+}
+
+#desktop-results {
+  margin-top:70px;
+}
+
+
+.spotify {
 	border: 0;
 	padding: 5px 10px;
 	border-radius: 20px;
 	background-color: #ddd;
-	width: 100%;
 	outline: none;
+  width:100%;
 }
 
-.mobile-search input:focus {
+.spotify:focus {
   background-color: #ddd;
 }
 
-.mobile-search .input-group-addon {
+.input-group-addon {
   border: 0;
   padding: 5px 10px;
   border-radius: 20px 0px 0px 20px;

@@ -1,8 +1,12 @@
 $(document).ready(function() {
-  $.get( "http://www.shaneschulte.com/queue/", function( data ) {
+  downloadQueue();
+});
+
+function downloadQueue() {
+  $.get( "http://"+window.location.host+"/queue/", function( data ) {
     updateQueue(data);
   });
-});
+}
 
 function updateQueue(data) {
   var result = data;
@@ -21,17 +25,17 @@ function updateQueue(data) {
   url = url.substring(0, url.length-1);
 
   // GET queue metadata
-  $.get(url, function(data) { updateQueuedSongs(data); });
+  var extra = Math.max(0, result.length - 20);
+  $.get(url, function(data) { updateQueuedSongs(data, extra); });
 }
 
-function updateQueuedSongs(data) {
+function updateQueuedSongs(data, extra) {
   // Clear old results
   $(".song-queue").html('');
   var $badge = $("<span>", {"class":"badge badge-default"}).html("Next");
 
   // Iterate results
   $.each(data.tracks, function(k,v) {
-
     // Construct div element for this entry
     var $div = $("<div>", {"class": "queued-song"});
     var $song = $("<h4>").html(v.name);
@@ -43,6 +47,14 @@ function updateQueuedSongs(data) {
     // Insert entry into the DOM
     $(".song-queue").append($div);
   });
+  if(extra == 0) return;
+  var $div = $("<div>", {"class": "queued-song"});
+  var $text = $("<p>", {"class":"no-margins text-center"}).html("+"+extra+" more tracks");
+  $(".song-queue").append($div.append($text));
+}
+
+function clearQueuedSongs() {
+  $(".song-queue").html('');
 }
 
 function clearNowPlaying() {

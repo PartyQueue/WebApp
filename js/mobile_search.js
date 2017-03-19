@@ -6,20 +6,26 @@ $(document).ready(function() {
     $("#mobile-search-bar").blur();
     e.preventDefault();
     var query = $("#mobile-search-bar").val();
-    $.ajax({
-            url: 'https://api.spotify.com/v1/search',
-            data: {
-                q: query,
-                type: 'track'
-            },
-            success: function (response) {
-                displayMobileSearch(response);
-                var stateObj = response;
-                history.pushState(stateObj, "Search results", "#/msearch/"+encodeURI(query))
-        }});
+    performMobileSearch(query, true);
   });
 });
+
 /* Search */
+function performMobileSearch(query, stash) {
+  $.ajax({
+          url: 'https://api.spotify.com/v1/search',
+          data: {
+              q: query,
+              type: 'track'
+          },
+          success: function (response) {
+              displayMobileSearch(response);
+              var stateObj = response;
+              if(stash) history.pushState(stateObj, "Search results", "#/msearch/"+encodeURI(query));
+              else history.replaceState(stateObj, "Search results", "#/msearch/"+encodeURI(query));
+      }});
+}
+
 function displayMobileSearch(response) {
   // Clear old results
   $('#mobile-results').html('');
@@ -58,4 +64,5 @@ function closeMobileSearch() {
     $("#mobile-search-bar").val('');
     $(".closebtn").addClass("hidden-xs-up");
     document.getElementById("mobile-search").style.height = "0vh";
+    $('#mobile-results').html('');
 }

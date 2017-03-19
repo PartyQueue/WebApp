@@ -36,7 +36,7 @@
             <form class="form-group no-margins" id="mobile-search-form">
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" id="mobile-search-bar" placeholder="Search">
+                <input type="text" class="form-control spotify" id="mobile-search-bar" placeholder="Search">
               </div>
             </form>
           </div>
@@ -52,17 +52,30 @@
           <div class="song-queue list-group">
           </div>
         </div>
-        <div class="desktop-search col-xl-7 col-lg-8 hidden-md-down"></div>
-        <div class="right-sidebar col-xl-2 hidden-lg-down"></div>
+        <div class="col-xl-9 col-lg-8 hidden-md-down">
+          <div class="desktop-search">
+            <form class="form-group" id="desktop-search-form">
+              <div class="input-group">
+                <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control spotify" id="desktop-search-bar" placeholder="Search">
+              </div>
+            </form>
+            <div id="desktop-results">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <!-- jQuery first, then Tether, then Bootstrap JS. -->
     <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="https://use.fontawesome.com/b624f43dfb.js"></script>
+    <script src="js/tablesorter.js"></script>
+    <script src="js/font_awesome.js"></script>
     <script src="js/notify.min.js"></script>
     <script src="js/utils.js"></script>
+    <script src="js/desktop_search.js"></script>
+    <script src="js/artist_search.js"></script>
     <script src="js/mobile_search.js"></script>
     <script src="js/refresh_queue.js"></script>
     <script src="js/route_handler.js"></script>
