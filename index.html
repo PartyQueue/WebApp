@@ -12,7 +12,7 @@
   <body>
     <div class="container-fluid" style="height:100vh; padding:0;">
       <div class="overlay hidden-lg-up" id="mobile-search">
-        <a href="javascript:void(0);" class="close closebtn text-white hidden-xs-up" onclick="closeNav()">&times;</a>
+        <a href="#" class="close closebtn text-white hidden-xs-up">&times;</a>
 
       <!-- SAMPLE -->
       <div class="media hidden-xs-up" id="original" style="cursor:pointer;">
@@ -36,17 +36,17 @@
             <form class="form-group no-margins" id="mobile-search-form">
               <div class="input-group">
                 <span class="input-group-addon" id="basic-addon1"><i class="fa fa-search"></i></span>
-                <input type="text" class="form-control" id="mobile-search-bar" placeholder="Search for...">
+                <input type="text" class="form-control" id="mobile-search-bar" placeholder="Search">
               </div>
             </form>
           </div>
           <div class="row now-playing no-gutters">
             <div class="album-holder col-4 col-md-3">
-              <img class="img-thumbnail album" src="https://placeholdit.imgix.net/~text?txtsize=72&txt=Nothing%20Playing&w=640&h=640"/>
+              <img class="img-thumbnail album hidden-xs-up" />
             </div>
             <div class="description col-8 col-md-9">
-              <h5 class="mt-0 song">Nothing Playing</h5>
-              <p class="no-margins artist">Request songs to get the party started!</p>
+              <h5 class="mt-0 song"></h5>
+              <p class="no-margins artist"></p>
             </div>
           </div>
           <div class="song-queue list-group">
@@ -62,7 +62,9 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <script src="https://use.fontawesome.com/b624f43dfb.js"></script>
     <script src="js/notify.min.js"></script>
+    <script src="js/utils.js"></script>
     <script src="js/mobile_search.js"></script>
     <script src="js/refresh_queue.js"></script>
+    <script src="js/route_handler.js"></script>
   </body>
 </html>
