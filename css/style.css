@@ -94,7 +94,7 @@ body {
 #track-table a:hover {
   text-decoration: underline;
 }
-.clickable {
+.clickable, .performs-search {
   cursor:pointer;
 }
 

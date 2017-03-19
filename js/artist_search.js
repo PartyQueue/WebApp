@@ -9,8 +9,7 @@ function performArtistLookup(id, stash) {
           var artist = response;
           var stateObj = {"topTracks":topTracks, "albums":albums, "related":related, "artist":artist};
           displayDesktopArtist(stateObj);
-          if(stash) history.pushState(stateObj, "", "#/artist/"+id);
-          //else history.replaceState(stateObj, "Search results", "#/artist/"+id);
+          if(stash && JSON.stringify(history.state) !== JSON.stringify(stateObj)) history.pushState(stateObj, "", "#/artist/"+id);
         });
       });
     });
@@ -18,7 +17,8 @@ function performArtistLookup(id, stash) {
 }
 function displayDesktopArtist(response) {
   var $div = $('#desktop-results');
-  $div.html('<div class="jumbotron jumbotron-fluid" style="background-image:url('+response.artist.images[0].url+');"><h1>'+response.artist.name+'</h1></div>');
+  var imgu = (response.artist.images.length == 0) ? placeholder : response.artist.images[0].url;
+  $div.html('<div class="jumbotron jumbotron-fluid" style="background-image:url('+imgu+');"><h1>'+response.artist.name+'</h1></div>');
   var $row = $('<div>', {'class':'row no-gutters'});
   var $topTracks = $('<div>', {'class':'col-7', 'id':'topTracks'});
   var $related = $('<div>', {'class':'col-5', 'id':'related'});
@@ -32,7 +32,8 @@ function displayDesktopArtist(response) {
   var i = 0;
   $.each(response.topTracks.tracks, function(k,v) {
     if(++i>5) return;
-    $entry = $("<div>", {"class":"popularSong", "id":v.id}).html("<img src='"+v.album.images[2].url+"' width=40 height=40 />"+v.name);
+    var imgu = (v.album.images.length == 0) ? placeholder : v.album.images[v.album.images.length-1].url;
+    $entry = $("<div>", {"class":"popularSong", "id":v.id}).html("<img src='"+imgu+"' width=40 height=40 />"+v.name);
     $topTracks.append($entry);
   });
   $(".popularSong").click(function() {
@@ -42,9 +43,7 @@ function displayDesktopArtist(response) {
   i = 0;
   $.each(response.related.artists, function(k,v) {
     if(++i>7) return;
-    var imgu;
-    if(v.images.length == 0) imgu = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVR4nGNiAAAABgADNjd8qAAAAABJRU5ErkJggg==";
-    else imgu = v.images[v.images.length-1].url;
+    var imgu = (v.images.length == 0) ? placeholder : v.images[v.images.length-1].url;
     $entry = $("<div>", {"class":"relatedArtist", "id":v.id}).html("<img class='rounded-circle' src='"+imgu+"' width=40 height=40 />"+v.name);
     $related.append($entry);
   });
@@ -55,6 +54,7 @@ function displayDesktopArtist(response) {
   $aA = $("#artist-albums");
   $.each(response.albums.items, function(k,v) {
     $col = $("<div>", {"class":"col-xl-4 col-lg-6 thumb", "id":v.id});
+    if(v.images.length == 0) return true;
     $col.append("<img class='img-fluid' src='"+v.images[0].url+"'/><p>"+v.name+"</p>");
     $aA.append($col);
   });

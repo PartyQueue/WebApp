@@ -1,5 +1,29 @@
 window.onpopstate = routeHandler;
-window.onload = routeHandler;
+window.onload = loadHandler;
+
+function loadHandler(event) {
+  $("#loginModal").modal();
+  $("#set-nick").click(login);
+  $("#login-form").submit(function(e) {
+    e.preventDefault();
+    login();
+  });
+  routeHandler(event);
+}
+
+function getCountryCode() {
+  $.get( "http://"+window.location.host+"/country/", function( data ) {
+    console.log("Found Country Code: "+data);
+    spotify_country = data;
+    first_success = true;
+  });
+}
+
+function login() {
+  username = $("#nickname").val();
+  $("#loginModal").modal('hide');
+}
+
 function routeHandler(event) {
 
   var route = document.URL.split("#");
