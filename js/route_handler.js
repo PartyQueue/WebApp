@@ -19,4 +19,8 @@ function routeHandler(event) {
     if(event.state === undefined || event.state === null) performArtistLookup(route[1].split("/")[2], false);
     else displayDesktopArtist(event.state);
   }
+  else if(route[1].startsWith("/album/")) {
+    if(event.state === undefined || event.state === null) performAlbumLookup(route[1].split("/")[2], false);
+    else displayDesktopAlbum(event.state);
+  }
 }

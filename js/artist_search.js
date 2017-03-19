@@ -8,9 +8,8 @@ function performArtistLookup(id, stash) {
         $.get('https://api.spotify.com/v1/artists/'+id, function (response) {
           var artist = response;
           var stateObj = {"topTracks":topTracks, "albums":albums, "related":related, "artist":artist};
-          console.log(stateObj);
           displayDesktopArtist(stateObj);
-          if(stash) history.pushState(stateObj, "Search results", "#/artist/"+id);
+          if(stash) history.pushState(stateObj, "", "#/artist/"+id);
           //else history.replaceState(stateObj, "Search results", "#/artist/"+id);
         });
       });
@@ -27,7 +26,7 @@ function displayDesktopArtist(response) {
   $div.append($row);
   $div.append(`<div class="container-fluid"><h4 style="padding-left:12px;">Albums</h4><div class="row" id="artist-albums"></div></div>`);
 
-  $topTracks.append('<h4>Popular</h4><div class="popularSong"></div>');
+  $topTracks.append('<h4>Popular</h4><div class="popularSongSpacer"></div>');
   $related.append('<h4>Related Artists</h4>');
 
   var i = 0;
@@ -43,7 +42,10 @@ function displayDesktopArtist(response) {
   i = 0;
   $.each(response.related.artists, function(k,v) {
     if(++i>7) return;
-    $entry = $("<div>", {"class":"relatedArtist", "id":v.id}).html("<img class='rounded-circle' src='"+v.images[2].url+"' width=40 height=40 />"+v.name);
+    var imgu;
+    if(v.images.length == 0) imgu = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAAAAAA6fptVAAAACklEQVR4nGNiAAAABgADNjd8qAAAAABJRU5ErkJggg==";
+    else imgu = v.images[v.images.length-1].url;
+    $entry = $("<div>", {"class":"relatedArtist", "id":v.id}).html("<img class='rounded-circle' src='"+imgu+"' width=40 height=40 />"+v.name);
     $related.append($entry);
   });
   $(".relatedArtist").click(function() {

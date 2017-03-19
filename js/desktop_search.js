@@ -22,7 +22,7 @@ function performDesktopSearch(query, stash) {
           success: function (response) {
               displayDesktopSearch(response);
               var stateObj = response;
-              if(stash) history.pushState(stateObj, "Search results", "#/search/"+encodeURI(query));
+              if(stash) history.pushState(stateObj, "", "#/search/"+encodeURI(query));
               //else history.replaceState(stateObj, "Search results", "#/search/"+encodeURI(query));
       }});
 }

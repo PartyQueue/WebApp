@@ -18,6 +18,14 @@ body {
 .popularSong {
     border-bottom:1px solid #282828;
     cursor:pointer;
+    height:40px;
+    vertical-align:middle;
+    line-height:40px;
+}
+
+.popularSongSpacer {
+    border-bottom:1px solid #282828;
+    height:40px;
 }
 
 .relatedArtist {
@@ -114,6 +122,15 @@ body {
   cursor:pointer;
 }
 
+.av p {
+    color:#a0a0a0;
+    margin-top:1.7em;
+}
+
+.av p a {
+    color:white;
+}
+
 #desktop-results {
   margin-top:70px;
   color:white;
@@ -141,7 +158,6 @@ body {
   background: -ms-linear-gradient(top, rgba(24,24,24,0.27) 0%, rgba(24,24,24,1) 100%);
   background: linear-gradient(to bottom, rgba(24,24,24,0.27) 0%, rgba(24,24,24,1) 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181818', endColorstr='#181818', GradientType=0 );
-  font-weight:bold;
   font-size:4vw;
   padding-left:24px;
   height:100%;
@@ -149,8 +165,24 @@ body {
   padding-top:11vh;
 }
 
+#desktop-results h1 {
+  font-weight:bold;
+}
+
 #topTracks, #related {
   padding-left:24px;
+}
+
+#albumTracks {
+  padding:0 24px;
+}
+
+#albumTracks .popularSong {
+  padding-left:16px;
+}
+
+.spot {
+  letter-spacing:2px;
 }
 
 .spotify {

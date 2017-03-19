@@ -21,7 +21,7 @@ function performMobileSearch(query, stash) {
           success: function (response) {
               displayMobileSearch(response);
               var stateObj = response;
-              if(stash) history.pushState(stateObj, "Search results", "#/msearch/"+encodeURI(query));
+              if(stash) history.pushState(stateObj, "", "#/msearch/"+encodeURI(query));
               //else history.replaceState(stateObj, "Search results", "#/msearch/"+encodeURI(query));
       }});
 }
