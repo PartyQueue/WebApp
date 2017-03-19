@@ -31,7 +31,7 @@ function performDesktopSearch(query, stash) {
 /* Search */
 function displayDesktopSearch(response) {
   // Clear old results
-  $('#desktop-results').html('<table class="tablesorter" id="track-table"><thead><tr><th class="thin">&nbsp;</th><th>SONG</th><th>ARTIST</th><th>ALBUM</th></tr></thead><tbody></tbody></table>');
+  $('#desktop-results').html('<table id="track-table"><thead><tr><th class="thin">&nbsp;</th><th>SONG</th><th>ARTIST</th><th>ALBUM</th></tr></thead><tbody></tbody></table>');
 
   // Iterate results
   $.each(response.tracks.items, function(k,v) {
@@ -58,7 +58,6 @@ function displayDesktopSearch(response) {
       that.show("slow");
     });
   });
-  $("#track-table").tablesorter();
   // Display the results
   $("#desktop-results").append("<div class='iphone-spacer'></div>");
 }
