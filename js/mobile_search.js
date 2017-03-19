@@ -22,7 +22,7 @@ function performMobileSearch(query, stash) {
               displayMobileSearch(response);
               var stateObj = response;
               if(stash) history.pushState(stateObj, "Search results", "#/msearch/"+encodeURI(query));
-              else history.replaceState(stateObj, "Search results", "#/msearch/"+encodeURI(query));
+              //else history.replaceState(stateObj, "Search results", "#/msearch/"+encodeURI(query));
       }});
 }
 
@@ -42,15 +42,7 @@ function displayMobileSearch(response) {
     // Set click listener (requests song on click)
     $("#"+v.id).click(function() {
       var that = $(this);
-      that.hide("fast");
-      var jqxhr = $.post("http://"+window.location.host+"/add", {'track': $(this).attr("id")}, function(data) {
-        $.notify("Your song has been requested!", {className:"success", position:"bottom right"});
-        that.remove();
-      })
-      .fail(function() {
-        $.notify("Song request failed.", {className:"error", position:"bottom right"});
-        that.show("slow");
-      });
+      requestSong(that);
     });
   });
 

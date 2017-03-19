@@ -11,7 +11,6 @@ $(document).ready(function() {
 });
 
 function performDesktopSearch(query, stash) {
-  $("#desktop-search-bar").val(query);
   $.ajax({
           url: 'https://api.spotify.com/v1/search',
           data: {
@@ -24,7 +23,7 @@ function performDesktopSearch(query, stash) {
               displayDesktopSearch(response);
               var stateObj = response;
               if(stash) history.pushState(stateObj, "Search results", "#/search/"+encodeURI(query));
-              else history.replaceState(stateObj, "Search results", "#/search/"+encodeURI(query));
+              //else history.replaceState(stateObj, "Search results", "#/search/"+encodeURI(query));
       }});
 }
 
@@ -48,15 +47,7 @@ function displayDesktopSearch(response) {
   // Set click listener (requests song on click)
   $("#track-table .clickable").click(function() {
     var that = $(this).closest("tr");
-    that.hide("fast");
-    var jqxhr = $.post("http://"+window.location.host+"/add", {'track': that.attr("id")}, function(data) {
-      $.notify("Your song has been requested!", {className:"success", position:"bottom right"});
-      that.remove();
-    })
-    .fail(function() {
-      $.notify("Song request failed.", {className:"error", position:"bottom right"});
-      that.show("slow");
-    });
+    requestSong(that);
   });
   // Display the results
   $("#desktop-results").append("<div class='iphone-spacer'></div>");

@@ -15,6 +15,29 @@ body {
   overflow-y: auto;
 }
 
+.popularSong {
+    border-bottom:1px solid #282828;
+    cursor:pointer;
+}
+
+.relatedArtist {
+    cursor:pointer;
+    margin-right:24px;
+    padding:4px 0;
+}
+
+.popularSong:hover, .relatedArtist:hover {
+  background-color:#282828;
+}
+
+.popularSong img {
+  margin-right:24px;
+}
+
+.relatedArtist img {
+  margin-right:12px;
+}
+
 .thin {
   width:60px;
   text-align:center;
@@ -38,6 +61,10 @@ body {
 }
 #track-table tr {
   border-bottom:1px solid #282828;
+}
+
+#track-table tr:hover {
+  background-color:#282828;
 }
 
 #track-table tr:hover i {
@@ -64,6 +91,7 @@ body {
 }
 
 .desktop-search .form-group {
+  z-index:1039;
   position:fixed;
   background-color:#121212;
   width:100%;
@@ -71,10 +99,59 @@ body {
   padding-right:70%;
 }
 
-#desktop-results {
-  margin-top:70px;
+.thumb {
+  margin:1em 0em;
 }
 
+.thumb img {
+    cursor:pointer;
+}
+
+.thumb p {
+  background-color:#282828;
+  width:100%;
+  padding:12px;
+  cursor:pointer;
+}
+
+#desktop-results {
+  margin-top:70px;
+  color:white;
+}
+
+#desktop-results h4 {
+  font-weight:bold;
+  margin-bottom:0.5em;
+}
+
+#desktop-results .jumbotron {
+  background-size:cover;
+  background-position: center center;
+  height:25vh;
+  margin-top:-16px;
+  padding:0px;
+}
+
+#desktop-results .jumbotron h1 {
+  background: rgba(24,24,24,0.27);
+  background: -moz-linear-gradient(top, rgba(24,24,24,0.27) 0%, rgba(24,24,24,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(24,24,24,0.27)), color-stop(100%, rgba(24,24,24,1)));
+  background: -webkit-linear-gradient(top, rgba(24,24,24,0.27) 0%, rgba(24,24,24,1) 100%);
+  background: -o-linear-gradient(top, rgba(24,24,24,0.27) 0%, rgba(24,24,24,1) 100%);
+  background: -ms-linear-gradient(top, rgba(24,24,24,0.27) 0%, rgba(24,24,24,1) 100%);
+  background: linear-gradient(to bottom, rgba(24,24,24,0.27) 0%, rgba(24,24,24,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#181818', endColorstr='#181818', GradientType=0 );
+  font-weight:bold;
+  font-size:4vw;
+  padding-left:24px;
+  height:100%;
+  white-space: nowrap;
+  padding-top:11vh;
+}
+
+#topTracks, #related {
+  padding-left:24px;
+}
 
 .spotify {
 	border: 0;
