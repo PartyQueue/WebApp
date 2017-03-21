@@ -12,7 +12,7 @@ function loadHandler(event) {
 }
 
 function getCountryCode() {
-  $.get( "http://"+window.location.host+"/country/", function( data ) {
+  $.get( "http://"+window.location.host+"/country", function( data ) {
     console.log("Found Country Code: "+data);
     spotify_country = data;
     first_success = true;

@@ -19,6 +19,8 @@ function requestSong(that) {
   that.hide("fast");
   var jqxhr = $.post("http://"+window.location.host+"/add", {'track': that.attr("id"), 'addedBy':username}, function(data) {
     $.notify("Your song has been requested!", {className:"success", position:"bottom right"});
+    clearTimeout(timeoutQueue);
+    timeoutQueue = setTimeout(downloadQueue, 3000);
     that.remove();
   })
   .fail(function() {
