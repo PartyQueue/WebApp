@@ -6,7 +6,6 @@ $(document).ready(function() {
 
 function downloadQueue() {
   var jqxhr = $.get( "http://"+window.location.host+"/queue", function( data ) {
-    console.log(data);
     updateQueue(data);
   });
 

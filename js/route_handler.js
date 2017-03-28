@@ -2,8 +2,14 @@ window.onpopstate = routeHandler;
 window.onload = loadHandler;
 
 function loadHandler(event) {
-  $("#loginModal").modal();
-  $("#set-nick").click(login);
+  if(Cookies.get('name') === undefined) {
+    $("#loginModal").modal();
+    $("#set-nick").click(login);
+  }
+  else {
+    username = Cookies.get('name');
+    Cookies.set('name', username, { expires: 1 });
+  }
   $("#login-form").submit(function(e) {
     e.preventDefault();
     login();
@@ -13,7 +19,6 @@ function loadHandler(event) {
 
 function getCountryCode() {
   $.get( "http://"+window.location.host+"/country", function( data ) {
-    console.log("Found Country Code: "+data);
     spotify_country = data;
     first_success = true;
   });
@@ -22,6 +27,7 @@ function getCountryCode() {
 function login() {
   username = $("#nickname").val();
   $("#loginModal").modal('hide');
+  Cookies.set('name', username, { expires: 1 });
 }
 
 function routeHandler(event) {
